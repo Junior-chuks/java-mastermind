@@ -2,7 +2,7 @@ package za.co.wethinkcode.mastermind;
 
 import java.io.InputStream;
 import java.util.Scanner;
-
+import java.util.regex.*;
 public class Player {
     private final Scanner inputScanner;
 
@@ -21,6 +21,24 @@ public class Player {
      * @return the value entered by the user
      */
     public String getGuess(){
-        return null;
+        while (true) {
+            System.out.print("\nInput 4 digit code:");
+            String code = this.inputScanner.nextLine();
+            if (code.equalsIgnoreCase("quit") || code.equalsIgnoreCase("exit")){
+                return  code;
+            }
+            else if(code.length() != 4 || !code.matches("[1-8]*") ){
+                System.out.print("\nPlease enter exactly 4 digits (each from 1 to 8).");
+
+            }else{
+                return  code;
+            }
+
+
+        }
     }
+//    public static void main(String[] args){
+//        Player play = new Player();
+//        play.getGuess();
+//    }
 }

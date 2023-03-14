@@ -6,10 +6,12 @@ public class CodeGenerator {
     private final Random random;
 
     public CodeGenerator(){
+
         this.random = new Random();
     }
 
     public CodeGenerator(Random random){
+
         this.random = random;
     }
 
@@ -20,6 +22,19 @@ public class CodeGenerator {
      */
     public String generateCode(){
         //TODO: implement using this.random
-        return null;
+        String code = "";
+
+        while(code.length() != 4){
+            int number = this.random.nextInt(8)+1;
+            if(number!= 0) {
+                code+=number;
+            }
+        }
+        return code;
     }
+//    public static void main (String[] args){
+//        CodeGenerator code_out =new CodeGenerator();
+//        String cod = code_out.generateCode();
+//        System.out.println(cod);
+//    }
 }
